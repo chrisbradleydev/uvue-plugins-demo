@@ -16,6 +16,7 @@
   "dependencies": {
     "@uvue/core": "^0.1.0",
     "@uvue/server": "^0.1.0",
+    "chalk": "^4.1.0",
     "compression": "^1.7.3",
     "connect": "^3.6.6",
     "cookie-parser": "^1.4.3",
@@ -24,6 +25,7 @@
     "koa-compress": "^5.0.1",
     "koa-mount": "^4.0.0",
     "koa-static": "^5.0.0",
+    "nanoid": "^3.1.12",
     "serve-static": "^1.13.2",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0"

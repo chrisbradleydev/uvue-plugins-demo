@@ -9,4 +9,5 @@ export default {
     "@uvue/server/plugins/modernBuild",
     "./src/plugins/serverPlugin.js",
   ],
+  watch: ["./server.config.js", "./src/plugins/**/*"],
 };
