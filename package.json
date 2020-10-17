@@ -1,63 +1,63 @@
 {
-  "name": "uvue-plugins-demo",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "ssr:build": "vue-cli-service ssr:build",
-    "ssr:fix": "vue-cli-service ssr:fix",
-    "ssr:fix-vuex": "vue-cli-service ssr:fix-vuex",
-    "ssr:serve": "vue-cli-service ssr:serve",
-    "ssr:start": "vue-cli-service ssr:start",
-    "ssr:static": "vue-cli-service ssr:static"
-  },
-  "dependencies": {
-    "@uvue/core": "^0.1.0",
-    "@uvue/server": "^0.1.0",
-    "chalk": "^4.1.0",
-    "compression": "^1.7.3",
-    "connect": "^3.6.6",
-    "cookie-parser": "^1.4.3",
-    "core-js": "^3.6.5",
-    "koa": "^2.13.0",
-    "koa-compress": "^5.0.1",
-    "koa-mount": "^4.0.0",
-    "koa-static": "^5.0.0",
-    "nanoid": "^3.1.12",
-    "serve-static": "^1.13.2",
-    "vue": "^2.6.11",
-    "vue-router": "^3.2.0"
-  },
-  "devDependencies": {
-    "@uvue/vue-cli-plugin-ssr": "~0.1.7",
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.2.2",
-    "koa-webpack": "^6.0.0",
-    "vue-template-compiler": "^2.6.11"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
+    "name": "uvue-plugins-demo",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "lint": "vue-cli-service lint",
+        "ssr:build": "vue-cli-service ssr:build",
+        "ssr:fix": "vue-cli-service ssr:fix",
+        "ssr:fix-vuex": "vue-cli-service ssr:fix-vuex",
+        "ssr:serve": "vue-cli-service ssr:serve",
+        "ssr:start": "vue-cli-service ssr:start",
+        "ssr:static": "vue-cli-service ssr:static"
     },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
+    "dependencies": {
+        "@uvue/core": "^0.1.0",
+        "@uvue/server": "^0.1.0",
+        "chalk": "^4.1.0",
+        "compression": "^1.7.3",
+        "connect": "^3.6.6",
+        "cookie-parser": "^1.4.3",
+        "core-js": "^3.6.5",
+        "koa": "^2.13.0",
+        "koa-compress": "^5.0.1",
+        "koa-mount": "^4.0.0",
+        "koa-static": "^5.0.0",
+        "nanoid": "^3.1.12",
+        "serve-static": "^1.13.2",
+        "vue": "^2.6.11",
+        "vue-router": "^3.2.0"
     },
-    "rules": {}
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+    "devDependencies": {
+        "@uvue/vue-cli-plugin-ssr": "~0.1.7",
+        "@vue/cli-plugin-babel": "~4.5.0",
+        "@vue/cli-plugin-eslint": "~4.5.0",
+        "@vue/cli-service": "~4.5.0",
+        "babel-eslint": "^10.1.0",
+        "eslint": "^6.7.2",
+        "eslint-plugin-vue": "^6.2.2",
+        "koa-webpack": "^6.0.0",
+        "vue-template-compiler": "^2.6.11"
+    },
+    "eslintConfig": {
+        "root": true,
+        "env": {
+            "node": true
+        },
+        "extends": [
+            "plugin:vue/essential",
+            "eslint:recommended"
+        ],
+        "parserOptions": {
+            "parser": "babel-eslint"
+        },
+        "rules": {}
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not dead"
+    ]
 }

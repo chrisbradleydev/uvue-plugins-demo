@@ -1,11 +1,20 @@
 /* eslint-disable */
 import chalk from 'chalk';
+import { inspect } from 'util';
 import { nanoid } from 'nanoid';
 
 const c = chalk;
-const { log: l } = console;
-const p = 'SERVER';
+const { log } = console;
 
+function getId(ctx) {
+    return ctx.req && ctx.req.__id;
+}
+
+function logIdAndMethod(id, method) {
+    log(`${c.green('SERVER')} | ${c.yellow(id)} | ${c.red(method)}\n`);
+}
+
+// console.log(`server.config.js\n`);
 export default {
     // Act on server bootstrap: good place to define some server middlewares
     // and use methods from current used HTTP framework
@@ -18,31 +27,26 @@ export default {
 
     // Do an action before page will be rendered by Vue SSR
     async beforeRender(context, app) {
-        const id = app.req && app.req.__id;
-        l(`${c.green(p)} | ${c.yellow(id)} | ${c.red('beforeRender')}\n`);
+        logIdAndMethod(getId(app), 'beforeRender');
     },
 
     // Body is rendered, now building the entire HTML page
     async beforeBuild(response, context, app) {
-        const id = context.req && context.req.__id;
-        l(`${c.green(p)} | ${c.yellow(id)} | ${c.red('beforeBuild')}\n`);
+        logIdAndMethod(getId(context), 'beforeBuild');
     },
 
     // HTML is ready to be sent to client
     async rendered(response, context, app) {
-        const id = context.req && context.req.__id;
-        l(`${c.green(p)} | ${c.yellow(id)} | ${c.red('rendered')}\n`);
+        logIdAndMethod(getId(context), 'rendered');
     },
 
     // Act when something go wrong during SSR rendering
     async routeError(error, response, context, app) {
-        const id = context.req && context.req.__id;
-        l(`${c.green(p)} | ${c.yellow(id)} | ${c.red('routeError')}\n`);
+        logIdAndMethod(getId(context), 'routeError');
     },
 
     // Page was sent to client
     afterResponse(context, app) {
-        const id = app.req && app.req.__id;
-        l(`${c.green(p)} | ${c.yellow(id)} | ${c.red('afterResponse')}\n`);
+        logIdAndMethod(getId(app), 'afterResponse');
     },
 };

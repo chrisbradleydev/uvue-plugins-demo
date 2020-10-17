@@ -1,10 +1,19 @@
 /* eslint-disable */
 import chalk from 'chalk';
+import { inspect } from 'util';
 
 const c = chalk;
-const { log: l } = console;
-const p = '~UVUE~';
+const { log } = console;
 
+function getId(ctx) {
+    return ctx.req && ctx.req.__id;
+}
+
+function logIdAndMethod(id, method) {
+    log(`${c.green('~UVUE~')} | ${c.yellow(id)} | ${c.red(method)}\n`);
+}
+
+// console.log(`uvue.config.js\n`);
 export default {
     // When plugin is installed to the stack
     install(options) {},
@@ -12,53 +21,77 @@ export default {
     // CLIENT & SERVER
     // Before new Vue is called: good place to define some routes or Vuex modules
     async beforeCreate(context, inject, vueOptions) {
-        const id = context.req && context.req.__id;
-        l(`${c.green(p)} | ${c.yellow(id)} | ${c.red('beforeCreate')}\n`);
+        logIdAndMethod(getId(context), 'beforeCreate');
+
+        if (process.client) {
+            //
+        }
     },
 
     // CLIENT & SERVER
     // After root component was created
     async created(context) {
-        const id = context.req && context.req.__id;
-        l(`${c.green(p)} | ${c.yellow(id)} | ${c.red('created')}\n`);
+        logIdAndMethod(getId(context), 'created');
+
+        if (process.client) {
+            //
+        }
     },
 
     // CLIENT & SERVER
     // App is now created, this hook is called before router is ready
     async beforeStart(context) {
-        const id = context.req && context.req.__id;
-        l(`${c.green(p)} | ${c.yellow(id)} | ${c.red('beforeStart')}\n`);
+        logIdAndMethod(getId(context), 'beforeStart');
+
+        if (process.client) {
+            //
+        }
     },
 
     // Before next page is created: good place to fetch some data
     async routeResolve(context) {
-        const id = context.req && context.req.__id;
-        l(`${c.green(p)} | ${c.yellow(id)} | ${c.red('routeResolve')}\n`);
+        logIdAndMethod(getId(context), 'routeResolve');
     },
 
     // When an error is thrown during a routeResolve() call
     async routeError(error, context) {
-        const id = context.req && context.req.__id;
-        l(`${c.green(p)} | ${c.yellow(id)} | ${c.red('routeError')}\n`);
+        logIdAndMethod(getId(context), 'routeError');
     },
 
     // When a error is thrown during plugins hooks
     catchError(error, context) {
-        const id = context.req && context.req.__id;
-        l(`${c.green(p)} | ${c.yellow(id)} | ${c.red('catchError')}\n`);
+        logIdAndMethod(getId(context), 'catchError');
     },
 
     // CLIENT & SERVER
     // Before app is mounted (client-side) or ready to be sent to client (server-side)
     async beforeReady(context) {
-        const id = context.req && context.req.__id;
-        l(`${c.green(p)} | ${c.yellow(id)} | ${c.red('beforeReady')}\n`);
+        logIdAndMethod(getId(context), 'beforeReady');
+
+        if (process.client) {
+            //
+        }
     },
 
     // CLIENT & SERVER
     // When everything is ready to go !
     ready(context) {
-        const id = context.req && context.req.__id;
-        l(`${c.green(p)} | ${c.yellow(id)} | ${c.red('ready')}\n`);
+        logIdAndMethod(getId(context), 'ready');
+
+        if (process.client) {
+            //
+        }
+    },
+
+    async sendSSRData(context) {
+        if (context.isServer) {
+            logIdAndMethod(getId(context), 'sendSSRData');
+
+            try {
+                context.ssr.bodyAdd = `<script>window.__id='H3CfZXvgvFbC_54lnshGs';</script>`;
+            } catch (error) {
+                context.error(error);
+            }
+        }
     },
 };

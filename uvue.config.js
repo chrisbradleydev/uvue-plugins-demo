@@ -1,8 +1,8 @@
 export default {
-  plugins: [
-    "@uvue/core/plugins/asyncData",
-    "@uvue/core/plugins/middlewares",
-    "@uvue/core/plugins/errorHandler",
-    "@/plugins/uvuePlugin.js",
-  ],
+    plugins: [
+        '@uvue/core/plugins/asyncData',
+        '@uvue/core/plugins/middlewares',
+        '@uvue/core/plugins/errorHandler',
+        '@/plugins/uvuePlugin.js',
+    ],
 };
