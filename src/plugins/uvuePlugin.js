@@ -85,10 +85,12 @@ export default {
 
     async sendSSRData(context) {
         if (context.isServer) {
-            logIdAndMethod(getId(context), 'sendSSRData');
+            const id = getId(context);
+
+            logIdAndMethod(id, 'sendSSRData');
 
             try {
-                context.ssr.bodyAdd = `<script>window.__id='H3CfZXvgvFbC_54lnshGs';</script>`;
+                context.ssr.bodyAdd = `<script>window.__id="${id}";</script>`;
             } catch (error) {
                 context.error(error);
             }
