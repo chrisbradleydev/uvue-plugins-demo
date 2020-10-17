@@ -1,16 +1,11 @@
 /* eslint-disable */
 import chalk from 'chalk';
-import { inspect } from 'util';
 
 const c = chalk;
 const { log } = console;
 
 function getId(ctx) {
     return ctx.req && ctx.req.__id;
-}
-
-function inspectContextForId(ctx) {
-    return inspect(ctx).match(/__id/g);
 }
 
 function logIdAndMethod(id, method) {
@@ -22,33 +17,24 @@ export default {
     // When plugin is installed to the stack
     install(options) {},
 
-    // CLIENT & SERVER
     // Before new Vue is called: good place to define some routes or Vuex modules
     async beforeCreate(context, inject, vueOptions) {
-        logIdAndMethod(getId(context), 'beforeCreate');
-
-        if (context.isClient) {
-            log(inspectContextForId(context));
+        if (context.isServer) {
+            logIdAndMethod(getId(context), 'beforeCreate');
         }
     },
 
-    // CLIENT & SERVER
     // After root component was created
     async created(context) {
-        logIdAndMethod(getId(context), 'created');
-
-        if (context.isClient) {
-            log(inspectContextForId(context));
+        if (context.isServer) {
+            logIdAndMethod(getId(context), 'created');
         }
     },
 
-    // CLIENT & SERVER
     // App is now created, this hook is called before router is ready
     async beforeStart(context) {
-        logIdAndMethod(getId(context), 'beforeStart');
-
-        if (context.isClient) {
-            log(inspectContextForId(context));
+        if (context.isServer) {
+            logIdAndMethod(getId(context), 'beforeStart');
         }
     },
 
@@ -67,23 +53,17 @@ export default {
         logIdAndMethod(getId(context), 'catchError');
     },
 
-    // CLIENT & SERVER
     // Before app is mounted (client-side) or ready to be sent to client (server-side)
     async beforeReady(context) {
-        logIdAndMethod(getId(context), 'beforeReady');
-
-        if (context.isClient) {
-            log(inspectContextForId(context));
+        if (context.isServer) {
+            logIdAndMethod(getId(context), 'beforeReady');
         }
     },
 
-    // CLIENT & SERVER
     // When everything is ready to go !
     ready(context) {
-        logIdAndMethod(getId(context), 'ready');
-
-        if (context.isClient) {
-            log(inspectContextForId(context));
+        if (context.isServer) {
+            logIdAndMethod(getId(context), 'ready');
         }
     },
 
