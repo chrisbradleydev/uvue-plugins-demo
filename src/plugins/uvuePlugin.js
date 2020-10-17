@@ -9,6 +9,10 @@ function getId(ctx) {
     return ctx.req && ctx.req.__id;
 }
 
+function inspectContextForId(ctx) {
+    return inspect(ctx).match(/__id/g);
+}
+
 function logIdAndMethod(id, method) {
     log(`${c.green('~UVUE~')} | ${c.yellow(id)} | ${c.red(method)}\n`);
 }
@@ -23,8 +27,8 @@ export default {
     async beforeCreate(context, inject, vueOptions) {
         logIdAndMethod(getId(context), 'beforeCreate');
 
-        if (process.client) {
-            //
+        if (context.isClient) {
+            log(inspectContextForId(context));
         }
     },
 
@@ -33,8 +37,8 @@ export default {
     async created(context) {
         logIdAndMethod(getId(context), 'created');
 
-        if (process.client) {
-            //
+        if (context.isClient) {
+            log(inspectContextForId(context));
         }
     },
 
@@ -43,8 +47,8 @@ export default {
     async beforeStart(context) {
         logIdAndMethod(getId(context), 'beforeStart');
 
-        if (process.client) {
-            //
+        if (context.isClient) {
+            log(inspectContextForId(context));
         }
     },
 
@@ -68,8 +72,8 @@ export default {
     async beforeReady(context) {
         logIdAndMethod(getId(context), 'beforeReady');
 
-        if (process.client) {
-            //
+        if (context.isClient) {
+            log(inspectContextForId(context));
         }
     },
 
@@ -78,8 +82,8 @@ export default {
     ready(context) {
         logIdAndMethod(getId(context), 'ready');
 
-        if (process.client) {
-            //
+        if (context.isClient) {
+            log(inspectContextForId(context));
         }
     },
 

@@ -1,6 +1,5 @@
 /* eslint-disable */
 import chalk from 'chalk';
-import { inspect } from 'util';
 import { nanoid } from 'nanoid';
 
 const c = chalk;
