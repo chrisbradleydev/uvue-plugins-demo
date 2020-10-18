@@ -10,7 +10,7 @@ function getId(ctx) {
 }
 
 function logIdAndMethod(id, method) {
-    log(`${c.green('SERVER')} | ${c.yellow(id)} | ${c.red(method)}\n`);
+    log(`${c.green('SERVER')} | ${c.yellow(id)} | ${c.red(method)}`);
 }
 
 // console.log(`server.config.js\n`);

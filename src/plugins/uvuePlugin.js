@@ -9,7 +9,7 @@ function getId(ctx) {
 }
 
 function logIdAndMethod(id, method) {
-    log(`${c.green('~UVUE~')} | ${c.yellow(id)} | ${c.red(method)}\n`);
+    log(`${c.green('~UVUE~')} | ${c.yellow(id)} | ${c.red(method)}`);
 }
 
 // console.log(`uvue.config.js\n`);

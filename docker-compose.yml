@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  nodejs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nodejs
+    environment:
+      - TZ=America/New_York
+    ports:
+      - 3000:3000
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    container_name: nginx
+    environment:
+      - TZ=America/New_York
+    ports:
+      - 80:80
+    depends_on:
+      - nodejs
