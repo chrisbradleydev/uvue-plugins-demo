@@ -1,29 +1,20 @@
 # uvue-plugins-demo
 
-## Project setup
+## Clone
 
 ```sh
-yarn install
+git clone https://github.com/chrisbradleydev/uvue-plugins-demo.git
+cd uvue-plugins-demo
 ```
 
-### Compiles and hot-reloads for development
+## Build
 
 ```sh
-yarn serve
+docker-compose up
 ```
 
-### Compiles and minifies for production
+## Launch
 
 ```sh
-yarn build
+http://localhost
 ```
-
-### Lints and fixes files
-
-```sh
-yarn lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
