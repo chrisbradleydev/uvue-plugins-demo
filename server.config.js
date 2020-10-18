@@ -7,6 +7,7 @@ export default {
         '@uvue/server/plugins/serverError',
         '@uvue/server/plugins/static',
         '@uvue/server/plugins/modernBuild',
+        './src/plugins/healthCheckPlugin.js',
         './src/plugins/serverPlugin.js',
     ],
     watch: ['server.config.js', './src/plugins/**/*'],
